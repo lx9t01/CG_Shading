@@ -1,0 +1,31 @@
+====================================================
+======     CREATED BY HAIXIANG (ALEX) XU     =======
+======      readme for assignment2 CS171     =======
+====================================================
+
+This file generally described some problems I encountered finishing this assignment, some details related to the program can be found in the comments inside the program files. 
+
+1, Formost, the first attempt I tried for Gourand shading is flawsome, because I stored all the color RGB data together with the vector<vertex> structure, therefore I cannot get multiple colors for a common vertex shared by multiple faces. This leads to problems in cube2, but works fine with others because they generally have one color light source for the vertex. 
+After I realized this problem, I changed the way to store RGB values in vecotr<face>, so as to assign every face with a color.
+
+2, For the face normal in Phong shading, I used to take average vector from the three face normal vectors to generate the face normal for each point in that face, this is an approximation, and the result for sphere looks exactly like flat shading. 
+
+3, The cube1 with Gourand shading has a slightly different color than the standard answer, I cannot figure out why. 
+
+4, The armadillo with Goudrand shading might have some problem because the color is almost grey. 
+
+5, As mentioned after the Wednesday's class, I carefully modified the NDC cube and range detection, so cube3 works fine, and armadillo is no longer out of range, because the camera rotation is unified. 
+
+6, FourCubes works fine, however, maybe it's because of my render sequence, the big red one is behind the purple one.
+
+7, If there is debug informations using cout, it's super slow...
+
+8, Nevermind, Phong is SUPER SLOW itself. I used 2 minutes 99% CPU to fully run a Phong bunny.
+
+9, The Phong kitten is not as colorful, currently I cannot figure out why. 
+
+10, Back culling and depth buffering are included. 
+
+11, The Phong shading requires for each point in NDC view, go back from NDC coordinate to world coordinate, and calculate the color. 
+
+12, bin.cpp is used for some test code.
